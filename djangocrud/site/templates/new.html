@@ -1,0 +1,15 @@
+<html>
+    <head>
+        <title>Home</title>
+    </head>
+    <body>
+        <form action="fibo" method="POST" name="myform">
+            {% csrf_token %}
+            <label>Enter Range</label>
+            <input type="text" name="text1" required>
+            <input type="submit" name="submit" value="Calculate">
+        </form>
+    </body>
+</html>
+
+

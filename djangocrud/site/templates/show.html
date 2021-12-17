@@ -1,0 +1,38 @@
+{% load static %}
+<html>
+    <head>
+        <title>Show Data</title>
+    </head>
+    <body>
+    <h1>Insert data into database</h1>
+    <form method="post" action="insertdata" name="myform">
+        {% csrf_token %}
+        <input type="number" name="id" placeholder="">
+        <input type="text" name="name" placeholder="Enter Student Name">
+        <input type="text" name="phone" placeholder="Enter phone number">
+        <input type="text" name="email" placeholder="Enter Email Address">
+        <input type="submit" value="Save" name="save">
+    </form>
+    {% block content %}
+       <table border="1">
+           <tr>
+               <th>ID</th>
+               <th>Name</th>
+               <th>Phone Number</th>
+               <th>Email</th>
+               <th colspan="2">Operations</th>
+           </tr>
+           {% for i in data %}
+           <tr>
+              <td>{{ i.id }}</td>
+               <td>{{ i.name }}</td>
+               <td>{{ i.phone }}</td>
+               <td>{{ i.email }}</td>
+               <td><a href="delete/{{ i.id }}">Delete</a> </td>
+               <td><a href="edit/{{ i.id }}">Edit</a> </td>
+           </tr>
+           {% endfor %}
+       </table>
+    {% endblock %}
+    </body>
+</html>

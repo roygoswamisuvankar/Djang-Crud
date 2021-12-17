@@ -1,0 +1,17 @@
+{% load static %}
+<html>
+    <head>
+        <title>Edit</title>
+    </head>
+    <body>
+        <h1>Edit your details</h1>
+        <form action="update" name="myedit" method="post">
+            {% csrf_token %}
+            <input type="int" value="{{ data.id }}" name="id" readonly>
+            <input type="text" value="{{ data.name }}" name="name" >
+            <input type="text" value="{{ data.phone }}" name="phone" >
+            <input type="text" value="{{ data.email }}" name="email" >
+            <input type="submit" value="Update" name="update" >
+        </form>
+    </body>
+</html>
