@@ -90,3 +90,7 @@ def update(request):
         update_data = student(id, name, phone, email)
         update_data.save()
     return redirect("show")
+
+#searching data
+
+
